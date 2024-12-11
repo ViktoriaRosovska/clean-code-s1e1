@@ -15,9 +15,6 @@ li {
 }
 
 .more-details {
-  width: 500px;
-  margin: 0 auto;
-  display: block;
   text-align: right;
 }
 
@@ -156,7 +153,7 @@ h3,
 }
 
 /* Edit Task */
-.task .task__input_edit {
+.task .task__input {
   display: none
 }
 
