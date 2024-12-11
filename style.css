@@ -14,6 +14,20 @@ li {
     list-style: none;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
 .more-details {
   text-align: right;
 }
@@ -54,7 +68,7 @@ button{
   outline: none;
 }
 
-button {
+.task__button {
   background: none;
   border: 0px;
   color: #888;
@@ -63,13 +77,12 @@ button {
   font-family: Lato, sans-serif;
   cursor: pointer;
 }
-
-button:hover {
+.task__button:hover {
   color: #3a3a3a;
 }
 
 /* Heading */
-h3,
+.tasks__header,
 .task__description_new-task {
   color: #333;
   font-weight: 700;
@@ -117,9 +130,6 @@ h3,
   justify-content: space-between;
   align-items: center;
 }
-/* li > * {
-  vertical-align: middle;
-} */
 
 .task__status {
   margin: 0 10px;

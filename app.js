@@ -38,13 +38,16 @@ const createNewTaskElement = function(taskString) {
   checkBox.type = "checkbox";
   checkBox.className = "task__status";
   editInput.type = "text";
-  editInput.className = "task__input";
+  editInput.className = "task__input task__input_edit";
 
   editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
-  editButton.className = "task__button_edit";
+  editButton.className = "task__button task__button_edit";
+  editButton.setAttribute("title", "edit")
 
-  deleteButton.className = "task__button_delete";
+  deleteButton.className = "task__button task__button_delete";
+  deleteButton.setAttribute("title", "delete")
   deleteButtonImg.src = "./remove.svg";
+  deleteButtonImg.setAttribute("alt", "remove task icon");
   deleteButton.appendChild(deleteButtonImg);
 
   //and appending.
@@ -88,9 +91,11 @@ const editTask = function() {
     //label becomes the inputs value.
     label.innerText = editInput.value;
     editBtn.innerText = "Edit";
+    editBtn.setAttribute("title", "edit");
   } else {
     editInput.value = label.innerText;
     editBtn.innerText = "Save";
+    editBtn.setAttribute("title", "save")
   }
 
   //toggle .editmode on the parent.
@@ -101,8 +106,8 @@ const editTask = function() {
 const deleteTask = function() {
   console.log("Delete Task...");
 
-  const listItem=this.parentNode;
-  const ul=listItem.parentNode;
+  const listItem = this.parentNode;
+  const ul = listItem.parentNode;
   //Remove the parent list item from the ul.
   ul.removeChild(listItem);
 
@@ -114,6 +119,7 @@ const  taskCompleted = function() {
 
   //Append the task list item to the #completed-tasks
   const listItem = this.parentNode;
+  listItem.classList.remove("task_edit-mode");
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
