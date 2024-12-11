@@ -9,7 +9,7 @@ ul {
     padding: 0px;
 }
 li {
-    list-style:none;
+    list-style: none;
 }
 .more-details {
   width: 500px;
@@ -46,7 +46,7 @@ li {
 
 input,
 button{
-  outline:none;
+  outline: none;
 }
 button {
   background: none;
@@ -139,14 +139,14 @@ h3,
 
 /* Edit Task */
 .task .task__input_edit {
-  display:none
+  display: none
 }
 
 .task_edit-mode .task__input_edit {
-  display:inline-block;
-  width:224px
+  display: inline-block;
+  width: 224px
 }
 
 .task_edit-mode label {
-  display:none;
+  display: none;
 }
