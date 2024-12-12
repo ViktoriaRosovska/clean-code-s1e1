@@ -115,7 +115,6 @@ const deleteTask = function() {
   const ul = listItem.parentNode;
   //Remove the parent list item from the ul.
   ul.removeChild(listItem);
-
 }
 
 //Mark task completed
@@ -129,7 +128,6 @@ const  taskCompleted = function() {
   label.className = "task__description task__description_completed";
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-
 }
 
 const taskIncomplete = function() {
