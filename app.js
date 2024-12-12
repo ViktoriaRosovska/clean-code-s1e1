@@ -38,7 +38,7 @@ const createNewTaskElement = function(taskString) {
   checkBox.type = "checkbox";
   checkBox.className = "task__status";
   editInput.type = "text";
-  editInput.className = "task__input task__input_edit";
+  editInput.className = "task__input";
 
   editButton.innerText = "Edit"; //innerText encodes special characters, HTML does not.
   editButton.className = "task__button task__button_edit";
@@ -48,6 +48,7 @@ const createNewTaskElement = function(taskString) {
   deleteButton.setAttribute("title", "delete")
   deleteButtonImg.src = "./remove.svg";
   deleteButtonImg.setAttribute("alt", "remove task icon");
+  deleteButtonImg.className = "task__button_image";
   deleteButton.appendChild(deleteButtonImg);
 
   //and appending.
@@ -90,12 +91,16 @@ const editTask = function() {
     //switch to .editmode
     //label becomes the inputs value.
     label.innerText = editInput.value;
+    label.className = "task__description";
     editBtn.innerText = "Edit";
     editBtn.setAttribute("title", "edit");
+    editInput.className = "task__input";
   } else {
     editInput.value = label.innerText;
     editBtn.innerText = "Save";
-    editBtn.setAttribute("title", "save")
+    editBtn.setAttribute("title", "save");
+    label.className = "task__description task__description_edit-mode";
+    editInput.className = "task__input task__input_edit";
   }
 
   //toggle .editmode on the parent.
@@ -120,6 +125,8 @@ const  taskCompleted = function() {
   //Append the task list item to the #completed-tasks
   const listItem = this.parentNode;
   listItem.classList.remove("task_edit-mode");
+  const label = listItem.querySelector(".task__description");
+  label.className = "task__description task__description_completed";
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
 
@@ -132,6 +139,8 @@ const taskIncomplete = function() {
   //Append the task list item to the #incompleteTasks.
   const listItem = this.parentNode;
   incompleteTaskHolder.appendChild(listItem);
+  const label = listItem.querySelector(".task__description");
+  label.className = "task__description";
   bindTaskEvents(listItem, taskCompleted);
 }
 
